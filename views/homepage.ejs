@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="/scripts/events.js"></script> <!-- animations and other fun stuff -->
+        <link rel="stylesheet" href="/assets/stylesheet.css" type="text/css"/>
+    </head>
+    <body>
+        <% include blocks/header %>
+        <div class="centerBlock">
+            <% if (typeof number !== 'undefined') { %>
+                <div class="number">Contacts: <%= number %></div>
+            <% } %>
+            <div class="row">
+                <form method="POST">
+                    <input id="newID" class="input" type="text" name="request"/>
+                </form>
+                <div id="newItem">
+                    <strong></strong>+
+                </div>
+            </div>
+            <form id="inputForm" method="POST">
+                <br><div class="flexBox"><input class="createInput" type="text" name="nameCreate" placeholder="Name"/></div><br>
+                <div class="flexBox"><input class="createInput" type="text" name="ageCreate" placeholder="Age"/></div><br>
+                <div class="flexBox"><input class="createInput" type="text" name="phoneCreate" placeholder="Phone"/></div><br>
+                <div class="flexBox"><input class="button" type="submit" name="submitNew"></input></div><br>
+            </form>
+            <div id="hint">Find who you need, when you need them.</div>
+            <% if (typeof err !== 'undefined') { %>
+                <h2 class="warning"><%= err %></h2>
+            <% } %>
+        </div>
+    </body>
+</html>
